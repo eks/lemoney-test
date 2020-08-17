@@ -3,10 +3,9 @@ class Offer < ApplicationRecord
   validates :advertiser_name, uniqueness: { case_sensitive: false }
   validates :description, length: { maximum: 500 }
   validate :end_after_start
+  validates :url, url: true
 
-  scope :active, lambda { |date = Date.today| where("? >= starts_at AND ? <= ends_at OR ? >= starts_at and ends_at IS NULL", date, date, date) }
-  scope :enabled, -> { where(state: true) }
-  scope :disabled, -> { where(state: false) }
+  scope :active, lambda { |date = Date.today| where("? >= starts_at AND ? <= ends_at AND state = TRUE OR ? >= starts_at and ends_at IS NULL AND state= TRUE", date, date, date) }
 
   private
 
