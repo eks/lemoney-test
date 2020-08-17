@@ -1,0 +1,14 @@
+<div class="col-sm-6 my-2">
+  <div class="card">
+    <div class="card-header">
+      <%= offer.advertiser_name %>
+      <%= premium_badge(offer) %>
+    </div>
+    <div class="card-body">
+      <p class="card-text"><%= offer.description %></p>
+      <div class="text-center">
+        <%= card_btn(offer) %>
+      </div>
+    </div>
+  </div>
+</div>

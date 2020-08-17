@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<% @offers.each_slice(2) do |offer| %>
+  <div class="row">
+    <% if offer[0] %>
+      <%= render 'card', offer: offer[0] %>
+    <% end %>
+
+    <% if offer[1] %>
+      <%= render 'card', offer: offer[1] %>
+    <% end %>
+
+  </div>
+<% end %>
